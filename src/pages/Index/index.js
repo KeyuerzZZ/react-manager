@@ -40,8 +40,8 @@ class Index extends React.Component {
 								<MenuRoutes />
 							</div>
 						</Content>
-						<Footer style={{ textAlign: 'center', paddingTop: '0' }}>
-							React-Admin ©2019 Created by Jeson
+						<Footer style={{ textAlign: 'center', paddingTop: '0' ,backgroundColor:'red'}}>
+							智慧影院用户平台 ©2021 Created by Zhangxiaowei
 							{' '}
 							<a target="_blank" rel="noopener noreferrer" href="https://github.com/JesonMan/react-admin">github地址</a>
 						</Footer>

@@ -4,8 +4,8 @@
   "description": "test",
   "main": "index.js",
   "scripts": {
-    "build": "NODE_ENV=production webpack --config webpack.prod.js",
-    "dev": "NODE_ENV=development webpack-dev-server --open --config webpack.dev.js",
+    "build": "set NODE_ENV=production webpack --config webpack.prod.js",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.dev.js",
     "dll": "webpack --config webpack.dll.js"
   },
   "author": "",
@@ -13,6 +13,7 @@
   "dependencies": {
     "antd": "^3.22.2",
     "babel-polyfill": "^6.26.0",
+    "cross-env": "^7.0.3",
     "echarts": "^4.3.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
