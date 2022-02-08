@@ -53,21 +53,7 @@ export const menus = [
 			{ key: '/home/navigation/steps', title: '步骤条', component: StepsDemo },
 		]
 	},
-	{
-		title: '输入组件',
-		icon: 'edit',
-		key: '/home/entry',
-		subs: [
-			{
-				key: '/home/entry/form',
-				title: '表单',
-				subs: [
-					{ key: '/home/entry/form/basic-form', title: '基础表单', component: BasicForm }
-				]
-			},
-			{ key: '/home/entry/upload', title: '上传', component: UploadDemo },
-		]
-	},
+
 	{
 		title: '显示组件',
 		icon: 'desktop',
@@ -86,6 +72,22 @@ export const menus = [
 			{ key: '/home/other/403', title: '403', component: Page403 },
 			{ key: '/home/other/404', title: '404', component: Page404 },
 			{ key: '/home/other/500', title: '500', component: Page500 },
+		]
+	},
+	{
+		title: '我的',
+		icon: 'edit',
+		key: '/home/entry',
+		subs: [
+			{
+				key: '/home/entry/form',
+				title: '个人信息',
+				component: BasicForm, 
+				// subs: [
+				// 	{ key: '/home/entry/form/basic-form', title: '个人信息', }
+				// ]
+			},
+			{ key: '/home/entry/upload', title: '上传', component: UploadDemo },
 		]
 	},
 	{

@@ -6,6 +6,7 @@ import { isAuthenticated } from '@/utils/session';
 import { logout } from '@/redux/actions/userStore';
 import img from './images/avatar.jpg';
 import style from './index.scss';
+import reactDom from 'react-dom';
 
 class HeaderBar extends React.Component {
 	constructor(props) {
@@ -32,7 +33,7 @@ class HeaderBar extends React.Component {
 		let menu = (
 			<Menu className={style.menu}>
 				<Menu.ItemGroup title="用户中心" className={style.menuGroup}>
-					<Menu.Item>个人信息</Menu.Item>
+					<Menu.Item 	>个人信息</Menu.Item>
 					<Menu.Item><span onClick={this.logout}>退出登录</span></Menu.Item>
 				</Menu.ItemGroup>
 				<Menu.ItemGroup title="设置中心" className={style.menuGroup}>

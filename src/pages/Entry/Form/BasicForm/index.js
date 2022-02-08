@@ -136,9 +136,24 @@ class BasicForm extends Component {
 
 		return (
 			<div>
-				<MyBreadcrumb arr={['输入组件', '表单', '基础表单']} />
-				<Card title="基础表单">
+				<MyBreadcrumb arr={['我的', '个人信息']} />
+				<Card title="个人信息">
 					<Form layout="horizontal" style={{ width: '70%', margin: '0 auto' }} onSubmit={this.handleSubmit}>
+					<FormItem label="工号" {...formItemLayout}>
+							{
+								getFieldDecorator('IdNum', {
+									rules: [
+										{
+											len: 10,
+											pattern: /^[1][3,4,5,7,8][0-9]{9}$/,
+											message: '请输入正确的10位工号'
+										}
+									]
+								})(
+									<Input placeholder="2019110199"/>
+								)
+							}
+						</FormItem>
 						<FormItem label="邮箱" {...formItemLayout}>
 							{
 								getFieldDecorator('email', {
@@ -255,7 +270,8 @@ class BasicForm extends Component {
 								)
 							}
 						</FormItem>
-						<FormItem label="个人站点" {...formItemLayout}>
+
+						{/* <FormItem label="个人站点" {...formItemLayout}>
 							{
 								getFieldDecorator('website', {
 									rules: [
@@ -268,7 +284,7 @@ class BasicForm extends Component {
 									<Input />
 								)
 							}
-						</FormItem>
+						</FormItem> */}
 						<FormItem {...formItemLayout} label="验证码">
 							<Row gutter={8}>
 								<Col span={12}>

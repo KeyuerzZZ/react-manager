@@ -77,7 +77,7 @@ export default class UploadDemo extends Component {
 		);
 		return (
 			<div className="clearfix">
-				<MyBreadcrumb arr={['输入组件', '上传']} />
+				<MyBreadcrumb arr={['我的', '上传']} />
 				<Card title="图片墙">
 					<Upload
 						action="https://www.mocky.io/v2/5cc8019d300000980a055e76"

@@ -15,7 +15,7 @@ export default class Home extends Component {
 		super(props);
 		function randomData() {
 			now = new Date(+now + oneDay);
-			value = value + Math.random() * 21 - 10;
+			value = value + Math.random() * 25 - 10;
 			return {
 				name: now.toString(),
 				value: [
@@ -26,10 +26,10 @@ export default class Home extends Component {
 		}
 
 		let data = [];
-		let now = +new Date(1997, 9, 3);
+		let now = +new Date(2021, 3, 1);
 		let oneDay = 24 * 3600 * 1000;
 		let value = Math.random() * 1000;
-		for (let i = 0; i < 1000; i++) {
+		for (let i = 0; i < 100; i++) {
 			data.push(randomData());
 		}
 
@@ -98,7 +98,7 @@ export default class Home extends Component {
 			},
 			pillarOption: {
 				xAxis: {
-					data: ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日'],
+					data: ['影厅一', '影厅二', '影厅三', '影厅四', '影厅五', '影厅六', '巨幕厅'],
 					offset: 12,
 				},
 				tooltip: {
@@ -126,7 +126,7 @@ export default class Home extends Component {
 							barBorderRadius: [0, 0, 0, 0],
 						}
 					},
-					data: [220, 182, 191, 234, 290, 330, 310]
+					data: [220, 182, 191, 234, 290, 330, 410]
 				}, {
 					name: 'a',
 					tooltip: {
@@ -145,7 +145,7 @@ export default class Home extends Component {
 							barBorderRadius: [0, 0, 0, 0]
 						}
 					},
-					data: [220, 182, 191, 234, 290, 330, 310],
+					data: [220, 182, 191, 234, 290, 330, 410],
 					barGap: 0,
 					legendHoverLink: false,
 				}, {
@@ -165,7 +165,7 @@ export default class Home extends Component {
 					symbolSize: ['34', '24'],
 					symbolOffset: ['0', '14'],
 					symbolPosition: 'start',
-					data: [220, 182, 191, 234, 290, 330, 310],
+					data: [220, 182, 191, 234, 290, 330, 410],
 					z: 3
 				}, {
 					name: 'b',
@@ -183,14 +183,14 @@ export default class Home extends Component {
 					symbolSize: ['34', '24'],
 					symbolOffset: ['0', '-12'],
 					symbolPosition: 'end',
-					data: [220, 182, 191, 234, 290, 330, 310],
+					data: [220, 182, 191, 234, 290, 330, 410],
 					z: 3
 				}]
 			},
 			pieOption: {
 				title: {
-					text: '某站点用户访问来源',
-					subtext: '纯属虚构',
+					text: '观众喜好捕捉分析饼图',
+					subtext: '数据来源近三个月喜好捕捉系统',
 					x: 'center'
 				},
 				tooltip: {
@@ -200,7 +200,7 @@ export default class Home extends Component {
 				legend: {
 					orient: 'vertical',
 					left: 'left',
-					data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
+					data: ['购票优惠资讯', '影视周边购买信息', '影片拍摄历史及花絮', '观影评价', '预售电影预告片']
 				},
 				series: [
 					{
@@ -209,11 +209,11 @@ export default class Home extends Component {
 						radius: '55%',
 						center: ['50%', '60%'],
 						data: [
-							{ value: 335, name: '直接访问' },
-							{ value: 310, name: '邮件营销' },
-							{ value: 234, name: '联盟广告' },
-							{ value: 135, name: '视频广告' },
-							{ value: 1548, name: '搜索引擎' }
+							{ value: 335, name: '购票优惠资讯' },
+							{ value: 310, name: '影视周边购买信息' },
+							{ value: 234, name: '影片拍摄历史及花絮' },
+							{ value: 135, name: '观影评价' },
+							{ value: 1548, name: '预售电影预告片' }
 						],
 						itemStyle: {
 							emphasis: {
@@ -278,30 +278,130 @@ export default class Home extends Component {
 				</Row>
 				<Row gutter={16}>
 					<Col span={12}>
-						<Card title="折线图">
+						<Card title="近三个月观众流量变化趋势">
 							<MyEcharts option={lineOption} height="250px" />
 						</Card>
 					</Col>
 					<Col span={12}>
-						<Card title="柱状图">
+						<Card title="今日各影厅观众数量">
 							<MyEcharts option={pillarOption} height="250px" />
 						</Card>
 					</Col>
 				</Row>
 				<Row gutter={16}>
 					<Col span={12}>
-						<Card title="饼图">
-							<MyEcharts option={pieOption} height="250px" />
+						<Card title="观众喜好捕捉">
+							<MyEcharts option={pieOption} height="265px" />
 						</Card>
 					</Col>
 					<Col span={12}>
-						<Card title="进度图" style={{ height: '346px' }}>
-							<Progress
+						<Card title="影厅监控" style={{ height: '360px' }}>
+							<div>
+								<span style={{ minWidth: '10%', marginRight: "20px" }}>影厅一</span>
+								<div style={{ width: '90%', display: "inline-flex" }}>
+									<Progress
+										strokeColor={{
+											'0%': '#108ee9',
+											'100%': '#87d068',
+										}}
+										percent={52}
+										status="active"
+									/>
+								</div>
+
+							</div>
+							<div style={{  marginTop: "20px" }}>
+								<span style={{ minWidth: '10%', marginRight: "20px" }}>影厅二</span>
+								<div style={{ width: '90%', display: "inline-flex" }}>
+									<Progress
+										strokeColor={{
+											'0%': '#108ee9',
+											'100%': '#87d068',
+										}}
+										percent={3}
+										status="exception"
+									/>
+								</div>
+
+							</div>
+							<div style={{  marginTop: "20px" }}>
+								<span style={{ minWidth: '10%', marginRight: "20px" }}>影厅三</span>
+								<div style={{ width: '90%', display: "inline-flex" }}>
+									<Progress
+										strokeColor={{
+											'0%': '#108ee9',
+											'100%': '#87d068',
+										}}
+										percent={93}
+										status="normal"
+									/>
+								</div>
+
+							</div>
+							<div style={{  marginTop: "20px" }}>
+								<span style={{ minWidth: '10%', marginRight: "20px" }}>影厅四</span>
+								<div style={{ width: '90%', display: "inline-flex" }}>
+									<Progress
+										strokeColor={{
+											'0%': '#108ee9',
+											'100%': '#87d068',
+										}}
+										percent={66}
+										status="success"
+									/>
+								</div>
+
+							</div>
+							<div style={{  marginTop: "20px" }}>
+								<span style={{ minWidth: '10%', marginRight: "20px" }}>影厅五</span>
+								<div style={{ width: '90%', display: "inline-flex" }}>
+									<Progress
+										strokeColor={{
+											'0%': '#108ee9',
+											'100%': '#87d068',
+										}}
+										percent={0}
+										status="normal"
+									/>
+								</div>
+
+							</div>
+							<div style={{  marginTop: "20px" }}>
+								<span style={{ minWidth: '10%', marginRight: "20px" }}>影厅六</span>
+								<div style={{ width: '90%', display: "inline-flex" }}>
+									<Progress
+										strokeColor={{
+											'0%': '#108ee9',
+											'100%': '#87d068',
+										}}
+										percent={27}
+										status="active"
+									/>
+								</div>
+
+							</div>
+							<div style={{  marginTop: "20px" }}>
+								<span style={{ minWidth: '10%', marginRight: "20px" }}>影厅七</span>
+								<div style={{ width: '90%', display: "inline-flex" }}>
+									<Progress
+										strokeColor={{
+											'0%': '#108ee9',
+											'100%': '#87d068',
+										}}
+										percent={100}
+
+									/>
+								</div>
+							</div>
+
+
+							{/* 环形进度条 */}
+							{/* <Progress
 								strokeColor={{
 									'0%': '#108ee9',
 									'100%': '#87d068',
 								}}
-								percent={68}
+								percent={52}
 								status="active"
 							/>
 							<Progress
@@ -335,7 +435,7 @@ export default class Home extends Component {
 								</Col>
 								<Col span={6}><Progress type="circle" percent={75} /></Col>
 								<Col span={6}><Progress type="circle" percent={70} status="exception" /></Col>
-							</Row>
+							</Row> */}
 						</Card>
 					</Col>
 				</Row>
